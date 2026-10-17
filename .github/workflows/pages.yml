@@ -3,6 +3,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  release:
+    types: [published]
 permissions:
   contents: read
   pages: write
@@ -19,6 +21,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Generate on-demand Mushaf page assets from release PDF
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          mkdir -p quran/mushaf/pages
+          if gh release download mushaf-v1 --pattern 'tajwid-hafs.pdf' --dir /tmp/hudaia-mushaf; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq poppler-utils
+            pdfinfo /tmp/hudaia-mushaf/tajwid-hafs.pdf | grep '^Pages:'
+            pdftoppm -f 10 -l 615 -jpeg -r 100 -jpegopt quality=78,optimize=y /tmp/hudaia-mushaf/tajwid-hafs.pdf /tmp/hudaia-mushaf/page
+            for f in /tmp/hudaia-mushaf/page-*.jpg; do
+              n="${f##*-}"; n="${n%.jpg}"
+              printf -v padded '%03d' "$((10#$n))"
+              mv "$f" "quran/mushaf/pages/pdf-page-${padded}.jpg"
+            done
+          else
+            echo "Mushaf release PDF not yet uploaded; keeping PDF selection fallback."
+          fi
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
