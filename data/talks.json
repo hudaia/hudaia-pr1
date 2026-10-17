@@ -23,15 +23,15 @@
     },
     {
       "id": "26425002",
-      "title": "Friday Khutba — October 16, 2026 (title pending verification)",
-      "title_ar": "خطبة الجمعة — ١٦ أكتوبر ٢٠٢٦ (العنوان قيد التحقق)",
-      "topic": "Friday Khutba",
+      "title": "Be a Peacemaker | Jumu'ah Khutbah | Dr. Abdul Razzak Junaid",
+      "title_ar": "كن صانعًا للسلام | خطبة الجمعة | د. عبد الرزاق جنيد",
+      "topic": "Jumuah Khutbah",
       "topic_ar": "خطبة الجمعة",
       "topic_id": "Friday Khutba",
       "language": "en",
       "date_added": "2026-10-17",
       "created_at": "2026-10-17T07:13:40.254Z",
-      "updated_at": "2026-10-17T07:13:40.254Z",
+      "updated_at": "2026-10-17T07:23:22.679Z",
       "youtube_id": "WVB2ZabgSNM",
       "source_url": "https://www.youtube.com/live/WVB2ZabgSNM",
       "description": "English Friday khutba shared for Hudaia. Original YouTube title not yet verified.",
@@ -45,7 +45,7 @@
   "topics": [
     {
       "id": "Friday Khutba",
-      "name": "Friday Khutba",
+      "name": "Jumuah Khutbah",
       "name_ar": "خطبة الجمعة",
       "order": 1
     },
