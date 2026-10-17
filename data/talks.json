@@ -12,5 +12,127 @@
       "description": "Featured talk from the Hudaia preview. Title and topic can be updated after verification.",
       "description_ar": "محاضرة مميزة من معاينة هداية. يمكن تحديث العنوان والتصنيف بعد التحقق."
     }
+  ],
+  "topics": [
+    {
+      "id": "Friday Khutba",
+      "name": "Friday Khutba",
+      "name_ar": "خطبة الجمعة",
+      "order": 1
+    },
+    {
+      "id": "Khatera",
+      "name": "Khatera",
+      "name_ar": "خاطرة",
+      "order": 2
+    },
+    {
+      "id": "Dua",
+      "name": "Dua",
+      "name_ar": "الدعاء",
+      "order": 3
+    },
+    {
+      "id": "Reminders",
+      "name": "Reminders",
+      "name_ar": "تذكير ومواعظ",
+      "order": 4
+    },
+    {
+      "id": "Family Series",
+      "name": "Family Series",
+      "name_ar": "سلسلة الأسرة",
+      "order": 5
+    },
+    {
+      "id": "Children",
+      "name": "Children",
+      "name_ar": "الأطفال",
+      "order": 6
+    },
+    {
+      "id": "Prophets",
+      "name": "Prophets",
+      "name_ar": "الأنبياء",
+      "order": 7
+    },
+    {
+      "id": "Ummah",
+      "name": "Ummah",
+      "name_ar": "الأمة",
+      "order": 8
+    },
+    {
+      "id": "Seerah",
+      "name": "Seerah",
+      "name_ar": "السيرة النبوية",
+      "order": 9
+    },
+    {
+      "id": "Tafseer",
+      "name": "Tafseer",
+      "name_ar": "التفسير",
+      "order": 10
+    },
+    {
+      "id": "Quran Recitation",
+      "name": "Quran Recitation",
+      "name_ar": "تلاوة القرآن",
+      "order": 11
+    },
+    {
+      "id": "Learn Arabic",
+      "name": "Learn Arabic",
+      "name_ar": "تعلم العربية",
+      "order": 12
+    },
+    {
+      "id": "Learn Tajweed",
+      "name": "Learn Tajweed",
+      "name_ar": "تعلم التجويد",
+      "order": 13
+    },
+    {
+      "id": "Hadith & Sunnah",
+      "name": "Hadith & Sunnah",
+      "name_ar": "الحديث والسنة",
+      "order": 14
+    },
+    {
+      "id": "Faith & Spirituality",
+      "name": "Faith & Spirituality",
+      "name_ar": "الإيمان والتزكية",
+      "order": 15
+    },
+    {
+      "id": "Islamic History",
+      "name": "Islamic History",
+      "name_ar": "التاريخ الإسلامي",
+      "order": 16
+    },
+    {
+      "id": "Youth & Identity",
+      "name": "Youth & Identity",
+      "name_ar": "الشباب والهوية",
+      "order": 17
+    },
+    {
+      "id": "New Muslims",
+      "name": "New Muslims",
+      "name_ar": "المسلمون الجدد",
+      "order": 18
+    },
+    {
+      "id": "Community & Service",
+      "name": "Community & Service",
+      "name_ar": "المجتمع والخدمة",
+      "order": 19
+    },
+    {
+      "id": "Islamic Ethics",
+      "name": "Islamic Ethics",
+      "name_ar": "الأخلاق الإسلامية",
+      "order": 20
+    }
   ]
 }
