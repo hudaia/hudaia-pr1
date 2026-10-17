@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "talks": [
     {
       "id": "talk-bEjL_QizhDA",
@@ -14,7 +14,8 @@
       "created_at": "2026-10-17T07:08:55Z",
       "updated_at": "2026-10-17T07:08:55Z",
       "topic_id": "general",
-      "source_url": "https://www.youtube.com/watch?v=bEjL_QizhDA"
+      "source_url": "https://www.youtube.com/watch?v=bEjL_QizhDA",
+      "language": "undetermined"
     }
   ],
   "topics": [
