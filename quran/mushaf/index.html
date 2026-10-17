@@ -2,7 +2,7 @@
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#171717}
 main{position:fixed;inset:0;width:100%;height:100%;height:100dvh;overflow:hidden}
 #spread{position:absolute;inset:0;display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;gap:2px}
-canvas{display:block;max-width:100%;max-height:100%;object-fit:contain;touch-action:pan-y}canvas[hidden]{display:none!important}@media(orientation:portrait){#spread{display:block!important;position:absolute;inset:0}#spread #first{position:absolute!important;left:50%!important;top:50%!important;transform:translate(-50%,-50%)!important;margin:0!important}#spread #second{display:none!important}}
+canvas{display:block;max-width:100%;max-height:100%;object-fit:contain;touch-action:pan-y;box-sizing:border-box}canvas[hidden]{display:none!important}@media(orientation:portrait){#spread{display:grid!important;place-items:center!important;position:absolute;inset:0;width:100%;height:100%}#spread #first{position:static!important;transform:none!important;margin:0!important;justify-self:center!important;align-self:center!important}#spread #second{display:none!important}}
 #prev,#next{position:fixed;top:0;bottom:0;width:18%;border:0;background:transparent;color:transparent;cursor:pointer;z-index:2}
 #prev{left:0}#next{right:0}#prev:focus-visible,#next:focus-visible{outline:2px solid #a4cbbb;outline-offset:-4px}
 #status{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;font:16px system-ui;padding:20px;box-sizing:border-box;background:#171717}
