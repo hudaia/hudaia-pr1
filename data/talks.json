@@ -60,9 +60,9 @@
     },
     {
       "id": "26426001",
-      "title": "Harm, Patience, Taqwa, Enjoining Good and Forbidding Evil | Fajr Khatera",
+      "title": "الأذى والصبر والتقوى والأمر بالمعروف والنهي عن المنكر",
       "title_ar": "الأذى والصبر والتقوى والأمر بالمعروف والنهي عن المنكر",
-      "topic": "Khatera",
+      "topic": "خاطرة",
       "topic_ar": "خاطرة",
       "topic_id": "Khatera",
       "language": "ar",
@@ -70,8 +70,12 @@
       "id_date": "2026-10-17",
       "youtube_id": "jMWwjs5S3SE",
       "source_url": "https://www.youtube.com/live/jMWwjs5S3SE",
-      "description": "Fajr Khatera by Dr. Muhammad Qatanani.",
-      "description_ar": "خاطرة الفجر للدكتور محمد قطاناني."
+      "description": "خاطرة الفجر للدكتور محمد قطاناني.",
+      "description_ar": "خاطرة الفجر للدكتور محمد قطاناني.",
+      "series": "خاطرة الفجر",
+      "series_ar": "خاطرة الفجر",
+      "speaker": "الدكتور محمد قطاناني",
+      "speaker_ar": "الدكتور محمد قطاناني"
     }
   ],
   "topics": [
