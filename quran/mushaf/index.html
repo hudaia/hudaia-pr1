@@ -2,7 +2,7 @@
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#171717}
 main{width:100vw;height:100dvh;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #spread{display:flex;flex-direction:row-reverse;align-items:center;justify-content:center;width:100%;height:100%;gap:2px}
-canvas{display:block;max-width:100%;max-height:100%;object-fit:contain;touch-action:pan-y}
+canvas{display:block;max-width:100%;max-height:100%;object-fit:contain;touch-action:pan-y}canvas[hidden]{display:none!important}@media(orientation:portrait){#spread{justify-content:center;align-items:center}#spread canvas:not([hidden]){margin-inline:auto}}
 #prev,#next{position:fixed;top:0;bottom:0;width:18%;border:0;background:transparent;color:transparent;cursor:pointer;z-index:2}
 #prev{left:0}#next{right:0}#prev:focus-visible,#next:focus-visible{outline:2px solid #a4cbbb;outline-offset:-4px}
 #status{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;font:16px system-ui;padding:20px;box-sizing:border-box;background:#171717}
@@ -14,11 +14,11 @@ const params=new URLSearchParams(location.search),raw=Number(params.get("page"))
 document.getElementById("close").onclick=()=>{location.href="../?page="+page};const first=document.getElementById("first"),second=document.getElementById("second"),status=document.getElementById("status");
 const pdfjs=await import("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs");pdfjs.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
 const cache=new Map();let renderSeq=0;
-function landscape(){return innerWidth>innerHeight}
+function landscape(){return matchMedia("(orientation: landscape)").matches}
 function spreadStart(n){return landscape()?Math.floor((n-1)/2)*2+1:n}
 async function getPage(n){const idx=starts.findIndex((v,i)=>n>=v&&(i===29||n<starts[i+1]));if(!cache.has(idx)){const filename="tajwid-hafs-juz-"+String(idx+1).padStart(2,"0")+".pdf";const task=pdfjs.getDocument({url:new URL(filename,location.href).href});cache.set(idx,task.promise)}const doc=await cache.get(idx);return doc.getPage(n-starts[idx]+1)}
 async function renderPage(n,canvas,slots,seq){const pg=await getPage(n);if(seq!==renderSeq)return;const base=pg.getViewport({scale:1}),scale=Math.min(innerWidth/slots/base.width,innerHeight/base.height),dpr=Math.min(devicePixelRatio||1,2);const view=pg.getViewport({scale:scale*dpr});const temp=document.createElement("canvas");temp.width=Math.ceil(view.width);temp.height=Math.ceil(view.height);await pg.render({canvasContext:temp.getContext("2d"),viewport:view}).promise;if(seq!==renderSeq)return;canvas.width=temp.width;canvas.height=temp.height;canvas.style.width=view.width/dpr+"px";canvas.style.height=view.height/dpr+"px";canvas.getContext("2d").drawImage(temp,0,0)}
-async function showPage(){const seq=++renderSeq;page=spreadStart(page);const two=landscape()&&page<604;second.hidden=!two;document.title="الصفحة "+page+(two?"–"+(page+1):"")+" | Hudaia";history.replaceState(null,"","?page="+page);status.hidden=false;status.textContent="جاري تحميل المصحف · Loading Quran…";
+async function showPage(){const seq=++renderSeq;page=spreadStart(page);const two=landscape()&&page<604;second.hidden=!two;second.style.display=two?"block":"none";document.title="الصفحة "+page+(two?"–"+(page+1):"")+" | Hudaia";history.replaceState(null,"","?page="+page);status.hidden=false;status.textContent="جاري تحميل المصحف · Loading Quran…";
 try{await Promise.all([renderPage(page,first,two?2:1,seq),...(two?[renderPage(page+1,second,2,seq)]:[])]);if(seq===renderSeq)status.hidden=true}catch(e){if(seq===renderSeq){status.textContent="تعذر عرض صفحة المصحف · Unable to display Quran page. "+(e?.message||"");console.error(e)}}}
 function go(delta){const step=landscape()?2:1;const next=Math.max(1,Math.min(604,page+delta*step));if(next===page)return;page=next;showPage()}
 document.getElementById("prev").onclick=()=>go(1);document.getElementById("next").onclick=()=>go(-1);
