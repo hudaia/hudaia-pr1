@@ -20,3 +20,7 @@ https://hudaia.github.io/hudaia-pr1/
 Edit `index.html` and push to `main`; GitHub Actions redeploys the preview. Changes in private `hudaia/Infrac` do **not** automatically synchronize here.
 
 This is a static placeholder only, not a live login or database-backed application.
+
+## Deployment refresh
+
+The public preview deploys automatically from `main` through `.github/workflows/pages.yml`. The talks catalog includes Character and Khatera entries, with English as the default talk language unless Arabic is specified.
