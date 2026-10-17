@@ -1,0 +1,283 @@
+{
+  "source": "tajwid-hafs.pdf",
+  "source_total_pdf_pages": 685,
+  "mapping": "PDF page = Quran page + 9",
+  "juz": [
+    {
+      "juz": 1,
+      "quran_page_start": 1,
+      "quran_page_end": 21,
+      "pdf_page_start": 10,
+      "pdf_page_end": 30,
+      "file": "tajwid-hafs-juz-01.pdf",
+      "bytes": 5448400
+    },
+    {
+      "juz": 2,
+      "quran_page_start": 22,
+      "quran_page_end": 41,
+      "pdf_page_start": 31,
+      "pdf_page_end": 50,
+      "file": "tajwid-hafs-juz-02.pdf",
+      "bytes": 4984192
+    },
+    {
+      "juz": 3,
+      "quran_page_start": 42,
+      "quran_page_end": 61,
+      "pdf_page_start": 51,
+      "pdf_page_end": 70,
+      "file": "tajwid-hafs-juz-03.pdf",
+      "bytes": 5039497
+    },
+    {
+      "juz": 4,
+      "quran_page_start": 62,
+      "quran_page_end": 81,
+      "pdf_page_start": 71,
+      "pdf_page_end": 90,
+      "file": "tajwid-hafs-juz-04.pdf",
+      "bytes": 5068593
+    },
+    {
+      "juz": 5,
+      "quran_page_start": 82,
+      "quran_page_end": 101,
+      "pdf_page_start": 91,
+      "pdf_page_end": 110,
+      "file": "tajwid-hafs-juz-05.pdf",
+      "bytes": 5089392
+    },
+    {
+      "juz": 6,
+      "quran_page_start": 102,
+      "quran_page_end": 120,
+      "pdf_page_start": 111,
+      "pdf_page_end": 129,
+      "file": "tajwid-hafs-juz-06.pdf",
+      "bytes": 4822100
+    },
+    {
+      "juz": 7,
+      "quran_page_start": 121,
+      "quran_page_end": 141,
+      "pdf_page_start": 130,
+      "pdf_page_end": 150,
+      "file": "tajwid-hafs-juz-07.pdf",
+      "bytes": 5390079
+    },
+    {
+      "juz": 8,
+      "quran_page_start": 142,
+      "quran_page_end": 161,
+      "pdf_page_start": 151,
+      "pdf_page_end": 170,
+      "file": "tajwid-hafs-juz-08.pdf",
+      "bytes": 5066417
+    },
+    {
+      "juz": 9,
+      "quran_page_start": 162,
+      "quran_page_end": 181,
+      "pdf_page_start": 171,
+      "pdf_page_end": 190,
+      "file": "tajwid-hafs-juz-09.pdf",
+      "bytes": 5113743
+    },
+    {
+      "juz": 10,
+      "quran_page_start": 182,
+      "quran_page_end": 200,
+      "pdf_page_start": 191,
+      "pdf_page_end": 209,
+      "file": "tajwid-hafs-juz-10.pdf",
+      "bytes": 4784756
+    },
+    {
+      "juz": 11,
+      "quran_page_start": 201,
+      "quran_page_end": 221,
+      "pdf_page_start": 210,
+      "pdf_page_end": 230,
+      "file": "tajwid-hafs-juz-11.pdf",
+      "bytes": 5332512
+    },
+    {
+      "juz": 12,
+      "quran_page_start": 222,
+      "quran_page_end": 241,
+      "pdf_page_start": 231,
+      "pdf_page_end": 250,
+      "file": "tajwid-hafs-juz-12.pdf",
+      "bytes": 5126114
+    },
+    {
+      "juz": 13,
+      "quran_page_start": 242,
+      "quran_page_end": 261,
+      "pdf_page_start": 251,
+      "pdf_page_end": 270,
+      "file": "tajwid-hafs-juz-13.pdf",
+      "bytes": 5130752
+    },
+    {
+      "juz": 14,
+      "quran_page_start": 262,
+      "quran_page_end": 281,
+      "pdf_page_start": 271,
+      "pdf_page_end": 290,
+      "file": "tajwid-hafs-juz-14.pdf",
+      "bytes": 5244268
+    },
+    {
+      "juz": 15,
+      "quran_page_start": 282,
+      "quran_page_end": 301,
+      "pdf_page_start": 291,
+      "pdf_page_end": 310,
+      "file": "tajwid-hafs-juz-15.pdf",
+      "bytes": 5251547
+    },
+    {
+      "juz": 16,
+      "quran_page_start": 302,
+      "quran_page_end": 321,
+      "pdf_page_start": 311,
+      "pdf_page_end": 330,
+      "file": "tajwid-hafs-juz-16.pdf",
+      "bytes": 5358310
+    },
+    {
+      "juz": 17,
+      "quran_page_start": 322,
+      "quran_page_end": 341,
+      "pdf_page_start": 331,
+      "pdf_page_end": 350,
+      "file": "tajwid-hafs-juz-17.pdf",
+      "bytes": 5174033
+    },
+    {
+      "juz": 18,
+      "quran_page_start": 342,
+      "quran_page_end": 361,
+      "pdf_page_start": 351,
+      "pdf_page_end": 370,
+      "file": "tajwid-hafs-juz-18.pdf",
+      "bytes": 5311995
+    },
+    {
+      "juz": 19,
+      "quran_page_start": 362,
+      "quran_page_end": 381,
+      "pdf_page_start": 371,
+      "pdf_page_end": 390,
+      "file": "tajwid-hafs-juz-19.pdf",
+      "bytes": 5337628
+    },
+    {
+      "juz": 20,
+      "quran_page_start": 382,
+      "quran_page_end": 401,
+      "pdf_page_start": 391,
+      "pdf_page_end": 410,
+      "file": "tajwid-hafs-juz-20.pdf",
+      "bytes": 5084249
+    },
+    {
+      "juz": 21,
+      "quran_page_start": 402,
+      "quran_page_end": 421,
+      "pdf_page_start": 411,
+      "pdf_page_end": 430,
+      "file": "tajwid-hafs-juz-21.pdf",
+      "bytes": 5219312
+    },
+    {
+      "juz": 22,
+      "quran_page_start": 422,
+      "quran_page_end": 441,
+      "pdf_page_start": 431,
+      "pdf_page_end": 450,
+      "file": "tajwid-hafs-juz-22.pdf",
+      "bytes": 5287492
+    },
+    {
+      "juz": 23,
+      "quran_page_start": 442,
+      "quran_page_end": 461,
+      "pdf_page_start": 451,
+      "pdf_page_end": 470,
+      "file": "tajwid-hafs-juz-23.pdf",
+      "bytes": 5465935
+    },
+    {
+      "juz": 24,
+      "quran_page_start": 462,
+      "quran_page_end": 481,
+      "pdf_page_start": 471,
+      "pdf_page_end": 490,
+      "file": "tajwid-hafs-juz-24.pdf",
+      "bytes": 5153837
+    },
+    {
+      "juz": 25,
+      "quran_page_start": 482,
+      "quran_page_end": 501,
+      "pdf_page_start": 491,
+      "pdf_page_end": 510,
+      "file": "tajwid-hafs-juz-25.pdf",
+      "bytes": 5226873
+    },
+    {
+      "juz": 26,
+      "quran_page_start": 502,
+      "quran_page_end": 521,
+      "pdf_page_start": 511,
+      "pdf_page_end": 530,
+      "file": "tajwid-hafs-juz-26.pdf",
+      "bytes": 5287590
+    },
+    {
+      "juz": 27,
+      "quran_page_start": 522,
+      "quran_page_end": 541,
+      "pdf_page_start": 531,
+      "pdf_page_end": 550,
+      "file": "tajwid-hafs-juz-27.pdf",
+      "bytes": 5488845
+    },
+    {
+      "juz": 28,
+      "quran_page_start": 542,
+      "quran_page_end": 561,
+      "pdf_page_start": 551,
+      "pdf_page_end": 570,
+      "file": "tajwid-hafs-juz-28.pdf",
+      "bytes": 5218441
+    },
+    {
+      "juz": 29,
+      "quran_page_start": 562,
+      "quran_page_end": 581,
+      "pdf_page_start": 571,
+      "pdf_page_end": 590,
+      "file": "tajwid-hafs-juz-29.pdf",
+      "bytes": 5634016
+    },
+    {
+      "juz": 30,
+      "quran_page_start": 582,
+      "quran_page_end": 604,
+      "pdf_page_start": 591,
+      "pdf_page_end": 613,
+      "file": "tajwid-hafs-juz-30.pdf",
+      "bytes": 6428996
+    }
+  ],
+  "separate_files": [
+    "front-matter-pdf-001-009.pdf",
+    "khatm-dua-pdf-614-615.pdf",
+    "additional-pages-pdf-616-685.pdf"
+  ],
+  "note": "Juz boundary page positions follow Hudaia reader starts; verify against printed Juz labels in original PDF."
+}
