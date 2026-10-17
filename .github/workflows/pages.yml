@@ -26,7 +26,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
-          mkdir -p quran/mushaf/pages
+          mkdir -p quran/mushaf/pages /tmp/hudaia-mushaf
           if gh release download mushaf-v1 --pattern 'tajwid-hafs.pdf' --dir /tmp/hudaia-mushaf; then
             sudo apt-get update -qq
             sudo apt-get install -y -qq poppler-utils
