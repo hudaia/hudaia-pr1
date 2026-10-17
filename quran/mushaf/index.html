@@ -3,31 +3,39 @@
 <style>
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#171717}
 main{width:100vw;height:100dvh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-canvas{display:block;max-width:100%;max-height:100%;object-fit:contain;touch-action:pan-y}
+canvas{display:block;max-width:100%;max-height:100%;object-fit:contain;touch-action:pan-y}#prev,#next{position:fixed;top:0;bottom:0;width:18%;border:0;background:transparent;color:transparent;cursor:pointer;z-index:2}#prev{left:0}#next{right:0}#prev:focus-visible,#next:focus-visible{outline:2px solid #a4cbbb;outline-offset:-4px}
 #status{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;font:16px system-ui;padding:20px;box-sizing:border-box;background:#171717}
 #status[hidden]{display:none}
-</style></head><body><main><canvas id="page" aria-label="صفحة المصحف · Quran page"></canvas></main><div id="status" role="status">جاري تحميل المصحف · Loading Mushaf…</div>
+</style></head><body><main><canvas id="page" aria-label="صفحة المصحف · Quran page"></canvas></main><button id="prev" aria-label="Previous Quran page · الصفحة السابقة"></button><button id="next" aria-label="Next Quran page · الصفحة التالية"></button><div id="status" role="status">جاري تحميل المصحف · Loading Mushaf…</div>
 <script type="module">
 const starts=[1,22,42,62,82,102,121,142,162,182,201,222,242,262,282,302,322,342,362,382,402,422,442,462,482,502,522,542,562,582];
 const params=new URLSearchParams(location.search);
-const raw=Number(params.get("page")),page=Number.isInteger(raw)&&raw>=1&&raw<=604?raw:1;
-const idx=starts.findIndex((v,i)=>page>=v&&(i===29||page<starts[i+1]));
-const localPage=page-starts[idx]+1;
-const filename="tajwid-hafs-juz-"+String(idx+1).padStart(2,"0")+".pdf";
-document.title="جزء "+(idx+1)+" · الصفحة "+page+" | Hudaia";
+const raw=Number(params.get("page"));let page=Number.isInteger(raw)&&raw>=1&&raw<=604?raw:1;
+
 const canvas=document.getElementById("page"),status=document.getElementById("status");
-try{
- const pdfjs=await import("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs");
- pdfjs.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
- const doc=await pdfjs.getDocument({url:new URL(filename,location.href).href}).promise;
- const pg=await doc.getPage(localPage);
- const base=pg.getViewport({scale:1});
- const scale=Math.min(innerWidth/base.width,innerHeight/base.height);
- const dpr=Math.min(devicePixelRatio||1,2);
- const view=pg.getViewport({scale:scale*dpr});
- canvas.width=Math.ceil(view.width);canvas.height=Math.ceil(view.height);
- canvas.style.width=(view.width/dpr)+"px";canvas.style.height=(view.height/dpr)+"px";
- await pg.render({canvasContext:canvas.getContext("2d"),viewport:view}).promise;
- status.hidden=true;
-}catch(e){status.textContent="تعذر عرض صفحة المصحف · Unable to display Quran page. "+(e?.message||"");console.error(e)}
+let doc=null,loadedJuz=-1,renderSeq=0,loading=null;const pdfjs=await import("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs");pdfjs.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
+async function showPage(){
+ const seq=++renderSeq,idx=starts.findIndex((v,i)=>page>=v&&(i===29||page<starts[i+1])),localPage=page-starts[idx]+1;
+ document.title="جزء "+(idx+1)+" · الصفحة "+page+" | Hudaia";history.replaceState(null,"","?page="+page);status.hidden=false;status.textContent="جاري تحميل المصحف · Loading page "+page+"…";
+ try{
+  if(loadedJuz!==idx){
+   const filename="tajwid-hafs-juz-"+String(idx+1).padStart(2,"0")+".pdf";
+   const task=pdfjs.getDocument({url:new URL(filename,location.href).href});
+   const nextDoc=await task.promise;if(seq!==renderSeq){await nextDoc.destroy();return}
+   if(doc)await doc.destroy();doc=nextDoc;loadedJuz=idx;
+  }
+  const pg=await doc.getPage(localPage);if(seq!==renderSeq)return;
+  const base=pg.getViewport({scale:1});const scale=Math.min(innerWidth/base.width,innerHeight/base.height);
+  const dpr=Math.min(devicePixelRatio||1,2);const view=pg.getViewport({scale:scale*dpr});
+  const temp=document.createElement("canvas");temp.width=Math.ceil(view.width);temp.height=Math.ceil(view.height);
+  await pg.render({canvasContext:temp.getContext("2d"),viewport:view}).promise;if(seq!==renderSeq)return;
+  canvas.width=temp.width;canvas.height=temp.height;canvas.style.width=(view.width/dpr)+"px";canvas.style.height=(view.height/dpr)+"px";canvas.getContext("2d").drawImage(temp,0,0);status.hidden=true;
+ }catch(e){if(seq===renderSeq){status.textContent="تعذر عرض صفحة المصحف · Unable to display Quran page. "+(e?.message||"");console.error(e)}}
+}
+function go(delta){const next=Math.max(1,Math.min(604,page+delta));if(next===page)return;page=next;showPage()}
+document.getElementById("prev").onclick=()=>go(-1);document.getElementById("next").onclick=()=>go(1);
+document.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")go(1);if(e.key==="ArrowRight")go(-1)});
+let x=0,y=0;canvas.addEventListener("touchstart",e=>{if(e.touches.length===1){x=e.touches[0].clientX;y=e.touches[0].clientY}},{passive:true});canvas.addEventListener("touchend",e=>{if(e.changedTouches.length!==1)return;const dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.3)go(dx<0?1:-1)},{passive:true});
+window.addEventListener("popstate",()=>{const n=Number(new URLSearchParams(location.search).get("page"));if(Number.isInteger(n)&&n>=1&&n<=604){page=n;showPage()}});
+showPage();
 </script></body></html>
