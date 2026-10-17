@@ -6,12 +6,12 @@ canvas{display:block;max-width:100%;max-height:100%;object-fit:contain;touch-act
 #prev,#next{position:fixed;top:0;bottom:0;width:18%;border:0;background:transparent;color:transparent;cursor:pointer;z-index:2}
 #prev{left:0}#next{right:0}#prev:focus-visible,#next:focus-visible{outline:2px solid #a4cbbb;outline-offset:-4px}
 #status{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;font:16px system-ui;padding:20px;box-sizing:border-box;background:#171717}
-#status[hidden]{display:none}
-</style></head><body><main><div id="spread"><canvas id="first" aria-label="Right Quran page · الصفحة اليمنى"></canvas><canvas id="second" aria-label="Left Quran page · الصفحة اليسرى" hidden></canvas></div></main><button id="prev" aria-label="Next Quran page · الصفحة التالية"></button><button id="next" aria-label="Previous Quran page · الصفحة السابقة"></button><div id="status" role="status">جاري تحميل المصحف · Loading Mushaf…</div>
+#status[hidden]{display:none}#close{position:fixed;top:max(10px,env(safe-area-inset-top));right:max(10px,env(safe-area-inset-right));z-index:5;width:38px;height:38px;border:0;border-radius:50%;background:#17171799;color:#fff;font:24px system-ui;cursor:pointer}
+</style></head><body><main><div id="spread"><canvas id="first" aria-label="Right Quran page · الصفحة اليمنى"></canvas><canvas id="second" aria-label="Left Quran page · الصفحة اليسرى" hidden></canvas></div></main><button id="close" aria-label="Return to Quran Reader · العودة إلى صفحة القرآن" title="Return to Quran Reader · العودة إلى صفحة القرآن">×</button><button id="prev" aria-label="Next Quran page · الصفحة التالية"></button><button id="next" aria-label="Previous Quran page · الصفحة السابقة"></button><div id="status" role="status">جاري تحميل المصحف · Loading Mushaf…</div>
 <script type="module">
 const starts=[1,22,42,62,82,102,121,142,162,182,201,222,242,262,282,302,322,342,362,382,402,422,442,462,482,502,522,542,562,582];
 const params=new URLSearchParams(location.search),raw=Number(params.get("page"));let page=Number.isInteger(raw)&&raw>=1&&raw<=604?raw:1;
-const first=document.getElementById("first"),second=document.getElementById("second"),status=document.getElementById("status");
+document.getElementById("close").onclick=()=>{location.href="../?page="+page};const first=document.getElementById("first"),second=document.getElementById("second"),status=document.getElementById("status");
 const pdfjs=await import("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs");pdfjs.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
 const cache=new Map();let renderSeq=0;
 function landscape(){return innerWidth>innerHeight}
