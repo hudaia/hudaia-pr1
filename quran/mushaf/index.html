@@ -22,7 +22,7 @@ async function showPage(){const seq=++renderSeq;page=spreadStart(page);const two
 try{await Promise.all([renderPage(page,first,two?2:1,seq),...(two?[renderPage(page+1,second,2,seq)]:[])]);if(seq===renderSeq)status.hidden=true}catch(e){if(seq===renderSeq){status.textContent="تعذر عرض صفحة المصحف · Unable to display Quran page. "+(e?.message||"");console.error(e)}}}
 function go(delta){const step=landscape()?2:1;const next=Math.max(1,Math.min(604,page+delta*step));if(next===page)return;page=next;showPage()}
 document.getElementById("prev").onclick=()=>go(1);document.getElementById("next").onclick=()=>go(-1);
-document.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")go(-1);if(e.key==="ArrowRight")go(1)});
+document.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")go(1);if(e.key==="ArrowRight")go(-1)});
 let x=0,y=0;const spread=document.getElementById("spread");spread.addEventListener("touchstart",e=>{if(e.touches.length===1){x=e.touches[0].clientX;y=e.touches[0].clientY}},{passive:true});spread.addEventListener("touchend",e=>{if(e.changedTouches.length!==1)return;const dx=e.changedTouches[0].clientX-x,dy=e.changedTouches[0].clientY-y;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.3)go(dx<0?-1:1)},{passive:true});
 let mouseStart=null;
 spread.addEventListener("pointerdown",e=>{if(e.pointerType!=="mouse"||e.button!==0)return;mouseStart={x:e.clientX,y:e.clientY};});
