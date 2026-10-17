@@ -1,8 +1,8 @@
 {
-  "version": 3,
+  "version": 4,
   "talks": [
     {
-      "id": "talk-bEjL_QizhDA",
+      "id": "26425001",
       "title": "Featured Khutba & Talk",
       "title_ar": "خطبة ومحاضرة مميزة",
       "topic": "General",
@@ -15,10 +15,14 @@
       "updated_at": "2026-10-17T07:08:55Z",
       "topic_id": "general",
       "source_url": "https://www.youtube.com/watch?v=bEjL_QizhDA",
-      "language": "undetermined"
+      "language": "undetermined",
+      "legacy_ids": [
+        "talk-bEjL_QizhDA"
+      ],
+      "id_date": "2026-10-16"
     },
     {
-      "id": "talk-WVB2ZabgSNM",
+      "id": "26425002",
       "title": "Friday Khutba — October 16, 2026 (title pending verification)",
       "title_ar": "خطبة الجمعة — ١٦ أكتوبر ٢٠٢٦ (العنوان قيد التحقق)",
       "topic": "Friday Khutba",
@@ -31,7 +35,11 @@
       "youtube_id": "WVB2ZabgSNM",
       "source_url": "https://www.youtube.com/live/WVB2ZabgSNM",
       "description": "English Friday khutba shared for Hudaia. Original YouTube title not yet verified.",
-      "description_ar": "خطبة جمعة باللغة الإنجليزية. لم يتم التحقق من عنوان الفيديو الأصلي بعد."
+      "description_ar": "خطبة جمعة باللغة الإنجليزية. لم يتم التحقق من عنوان الفيديو الأصلي بعد.",
+      "legacy_ids": [
+        "talk-WVB2ZabgSNM"
+      ],
+      "id_date": "2026-10-16"
     }
   ],
   "topics": [
