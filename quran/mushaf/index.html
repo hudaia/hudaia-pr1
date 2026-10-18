@@ -11,7 +11,7 @@ canvas{display:block;max-width:100%;max-height:100%;object-fit:contain;touch-act
 <script type="module">
 const starts=[1,22,42,62,82,102,121,142,162,182,201,222,242,262,282,302,322,342,362,382,402,422,442,462,482,502,522,542,562,582];
 const lastPageKey="hudaia-quran-last-page";const params=new URLSearchParams(location.search);let savedPage=1;try{const n=Number(localStorage.getItem(lastPageKey));if(Number.isInteger(n)&&n>=1&&n<=604)savedPage=n}catch(e){}const raw=Number(params.get("page"));let page=params.has("page")&&Number.isInteger(raw)&&raw>=1&&raw<=604?raw:savedPage;
-document.getElementById("close").onclick=()=>{location.href="../?page="+page};const first=document.getElementById("first"),second=document.getElementById("second"),status=document.getElementById("status");
+document.getElementById("close").onclick=()=>{try{localStorage.setItem(lastPageKey,String(page))}catch(e){}location.href="../?reader=1&page="+page};const first=document.getElementById("first"),second=document.getElementById("second"),status=document.getElementById("status");
 const pdfjs=await import("https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.min.mjs");pdfjs.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.10.38/pdf.worker.min.mjs";
 const cache=new Map();let renderSeq=0;const modeKey="hudaia-mushaf-view-mode";let mode="auto";try{const saved=localStorage.getItem(modeKey);if(["single","double"].includes(saved))mode=saved}catch(e){}
 function twoPageMode(){return mode==="double"||(mode==="auto"&&matchMedia("(orientation: landscape)").matches)}
