@@ -121,8 +121,8 @@
     },
     {
       "id": "26453001",
-      "title": "Talk — title pending verification",
-      "title_ar": "محاضرة — العنوان قيد التحقق",
+      "title": "Double Thinking | Sheikh Belal Assaad",
+      "title_ar": "التفكير المزدوج | الشيخ بلال أسعد",
       "topic": "General",
       "topic_ar": "عام",
       "topic_id": "general",
@@ -131,8 +131,12 @@
       "id_date": "2026-11-04",
       "youtube_id": "e8n8oMEu5c8",
       "source_url": "https://www.youtube.com/live/e8n8oMEu5c8",
-      "description": "YouTube Live talk. Title, speaker, language, and topic pending verification.",
-      "description_ar": "محاضرة عبر يوتيوب. العنوان والمتحدث واللغة والتصنيف قيد التحقق."
+      "description": "Double Thinking — a talk by Sheikh Belal Assaad at Preston Mosque.",
+      "description_ar": "محاضرة «التفكير المزدوج» للشيخ بلال أسعد في مسجد بريستون.",
+      "speaker": "Sheikh Belal Assaad",
+      "speaker_ar": "الشيخ بلال أسعد",
+      "location": "Preston Mosque",
+      "updated_at": "2026-11-04"
     }
   ],
   "topics": [
